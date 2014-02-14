@@ -6,7 +6,7 @@
       </div>
     <div class="row container">
       <h2> Expenses
-      <a href="/newexpense" class="btn btn-warning pull-right">Enter New Expense</a>
+      <a href="/expenses/new" class="btn btn-warning pull-right">Enter New Expense</a>
       </h2>
     </div>
 
@@ -17,32 +17,28 @@
               <th>#</th>
               <th>Description</th>
               <th>Amount</th>
-              <th>Who Paid</th>
-              <th>You Owe</th>
+              <th>Comments</th>
+<!--               <th>Who Paid</th>
+              <th>You Owe</th> -->
+              <th>Options</th>
             </tr>
           </thead>
           <tbody>
+
+          <% @expense_list.each do |expense| %>
+
             <tr>
-              <td>1</td>
-              <td>Airbnb</td>
-              <td>450.00</td>
-              <td>Eric Lee</td>
-              <td>$0.00</td>
+              <td><%= expense.id %></td>
+              <td><%= expense.description %></td>
+              <td>$ <%= expense.amount %></td>
+              <td><%= expense.comment %></td>
+<!--               <td></td>
+              <td> </td> -->
+              <td><%= link_to "Edit", "/expenses/#{expense.id}/edit" %> | <%= link_to "Delete", "/expenses/#{expense.id}/delete" %></td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Groceries</td>
-              <td>$150.00</td>
-              <td>Jon Finch</td>
-              <td>$30.00</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Rental Car</td>
-              <td>$100.00</td>
-              <td>Wonjun Lee</td>
-              <td>$50.00</td>
-            </tr>
+          <% end %>
+
+
           </thead>
         </table>
         <p>

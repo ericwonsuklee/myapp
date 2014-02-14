@@ -1,6 +1,6 @@
 Myapp::Application.routes.draw do
 
-  get "/home" => "pages#home"
+  get "/expenses" => "pages#expenses"
   get "/newexpense" => "pages#newexp"
 
   get "/index" => "pages#index"
@@ -10,7 +10,20 @@ Myapp::Application.routes.draw do
 
   get "/newflightinfo" => "pages#newflightinfo"
 
+  # CREATE
+  get "/expenses/new" => "pages#new"
+  get "/expenses/create" => "pages#create"
 
+  # READ
+  get "/expenses" => 'pages#index'
+  get "/expenses/:expense_id/show" => "pages#show"
+
+  # UPDATE
+  get "/expenses/:expense_id/edit" => "pages#edit"
+  get "/expenses/:expense_id/update" => "pages#update"
+
+  # DELETE
+  get "/expenses/:expense_id/delete" => "pages#destroy"
 
 
 
