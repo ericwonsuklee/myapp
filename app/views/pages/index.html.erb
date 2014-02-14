@@ -1,0 +1,11 @@
+<div class = "page-header">
+  <h1>Payment Options</h1>
+</div>
+
+<% @payment_list.each do |payment| %>
+<div class="row">
+  <div class="col-md-12">
+    <h3><a href="/show"><%= payment %></a></h3>
+  </div>
+</div>
+<% end %>
