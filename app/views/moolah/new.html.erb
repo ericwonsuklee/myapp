@@ -1,7 +1,7 @@
 <div class="page-header">
   <h2>Add New Expense</h2>
 </div>
-<form action="/expenses/create">
+<form action="/expenses/create/<%= @trip.id %>">
 <div class="row">
   <div class="col-lg-6">
     <div class="well">
@@ -9,6 +9,7 @@
         <fieldset>
           <legend>New item</legend>
           <div class="form-group">
+            <input type="hidden" name="fortrip" value = "<%= @trip.id %>">
             <label for="inputDescription" class="col-lg-2 control-label">Description</label>
             <div class="col-lg-10">
               <input name="description" type="text" class="form-control" placeholder="Description">

@@ -1,13 +1,15 @@
- <div class="container">
+<div class="container">
 
       <div class="page-header">
-        <h2>Wonjun's Bachelor Party</h2>
-        <h4>4/3/2014 ~ 4/5/2014</h4>
+        <h2>All Expenses</h2>
       </div>
+  <% @trip_list.each do |trip| %>
+
     <div class="row container">
-      <h2> Expenses
-      <a href="/expenses/new" class="btn btn-warning pull-right">Enter New Expense</a>
+      <h2> <%= trip.trip_name %>
+      <a href="/expenses/new/<%= trip.id %>" class="btn btn-warning pull-right">Enter New Expense</a>
       </h2>
+      <h4><%= trip.start_date %> to <%= trip.end_date %></h4>
     </div>
 
       <div class="row table-responsive container">
@@ -25,8 +27,7 @@
           </thead>
           <tbody>
 
-          <% @expense_list.each do |expense| %>
-
+          <% @expense_list.where(:fortrip => trip.id).each do |expense| %>
             <tr>
               <td><%= expense.id %></td>
               <td><%= expense.description %></td>
@@ -38,11 +39,13 @@
             </tr>
           <% end %>
 
-
           </thead>
         </table>
         <p>
-          <h4 align="right" class="col-md-12">Total Amount Due $80.00</h4>
+          <h4 align="right" class="col-md-12">Total Amount Due $<%= @expense_list.where(:fortrip =>trip.id).sum(:amount).round(2) %></h4>
         </p>
       </div>
-    </div>
+
+  <% end %>
+
+</div>

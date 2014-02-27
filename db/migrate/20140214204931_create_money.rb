@@ -4,6 +4,7 @@ class CreateMoney < ActiveRecord::Migration
       t.text :description
       t.float  :amount
       t.text :comment
+      t.integer :fortrip
       t.timestamps
     end
   end

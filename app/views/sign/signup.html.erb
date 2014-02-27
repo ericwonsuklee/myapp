@@ -1,11 +1,16 @@
 <div class="col-md-4">
   <form class="form-signin" role="form">
-    <h2 class="form-signin-heading">Please sign in</h2>
+    <h2 class="form-signin-heading">Sign-up!</h2>
     <input type="email" class="form-control" placeholder="Email address" required autofocus>
     <input type="password" class="form-control" placeholder="Password" required>
-    <label class="checkbox">
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
+    <select class="form-control">
+      <% @trip_list.each do |trip| %>
+         <option><%= trip.trip_name %></option>
+       <% end %>
+       <option>Add new trip</option>
+    </select>
+    <p></p>
+
     <button class="btn btn-md btn-primary btn-block" type="submit">Sign in</button>
   </form>
 </div>

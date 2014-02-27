@@ -1,29 +1,42 @@
 Myapp::Application.routes.draw do
 
-  get "/expenses" => "pages#expenses"
-  get "/newexpense" => "pages#newexp"
+  get "/" => "pages#home"
 
   get "/index" => "pages#index"
   get "/show" => "pages#show"
 
-  get "/signin" => "pages#signin"
+
+  get "/signup" => "sign#signup"
+  get "/signin" => "sign#signin"
 
   get "/newflightinfo" => "pages#newflightinfo"
 
   # CREATE
-  get "/expenses/new" => "pages#new"
-  get "/expenses/create" => "pages#create"
+  get "/expenses/new/:trip_id" => "moolah#new"
+  get "/expenses/create/:trip_id" => "moolah#create"
+
+  get "/trips/new" => "trips#new"
+  get "/trips/create" => "trips#create"
 
   # READ
-  get "/expenses" => 'pages#index'
-  get "/expenses/:expense_id/show" => "pages#show"
+  get "/expenses/" => "moolah#expenses"
+  get "/expenses/:expense_id/show" => "moolah#show"
+
+  get "/trips" => "trips#trips"
+  get "/trips/:trip_id/show" => "trips#show"
 
   # UPDATE
-  get "/expenses/:expense_id/edit" => "pages#edit"
-  get "/expenses/:expense_id/update" => "pages#update"
+  get "/expenses/:expense_id/edit" => "moolah#edit"
+  get "/expenses/:expense_id/update" => "moolah#update"
+
+  get "/trips/:trip_id/edit" => "trips#edit"
+  get "/trips/:trip_id/update" => "trips#update"
 
   # DELETE
-  get "/expenses/:expense_id/delete" => "pages#destroy"
+  get "/expenses/:expense_id/delete" => "moolah#destroy"
+
+  get "/trips/:trip_id/delete" => "trips#destroy"
+
 
 
 
