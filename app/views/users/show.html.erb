@@ -2,3 +2,41 @@
 <p>Name: <%= @user.name %></p>
 <p>Email: <%= @user.email %></p>
 <p>Password: <%= @user.password %></p>
+
+<% user = User.find_by(:id => session[:user_id]) %>
+<% if user.id==1 %>
+
+<div class="row container">
+  <h2> All users</h2>
+</div>
+
+  <div class="row table-responsive container">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <% @user_list.each do |user| %>
+
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.password %></td>
+          <td></td>
+        </tr>
+      <% end %>
+
+
+      </thead>
+    </table>
+
+  </div>
+  <% end %>

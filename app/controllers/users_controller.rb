@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_list=User.all
     @user = User.find_by(:id => params[:user_id])
     if @user.id != session[:user_id]
       redirect_to root_url, notice: "You do not have access to this account"
