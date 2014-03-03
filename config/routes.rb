@@ -1,13 +1,17 @@
 Myapp::Application.routes.draw do
 
-  get "/" => "pages#home"
+  root "pages#home"
 
   get "/index" => "pages#index"
   get "/show" => "pages#show"
 
+  get "login" => 'sign#new'
+  get "logout" => 'sign#destroy'
+  get "authenticate" => 'sign#create'
 
-  get "/signup" => "sign#signup"
-  get "/signin" => "sign#signin"
+  get "/users/new" => 'users#new'
+  get "/users/create" => 'users#create'
+  get "/users/:user_id/show" => 'users#show'
 
   get "/newflightinfo" => "pages#newflightinfo"
 

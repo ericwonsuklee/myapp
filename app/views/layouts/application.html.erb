@@ -28,16 +28,29 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
-            <li><a href="/trips">My Trips</a></li>
-            <li><a href="/expenses">Expenses</a></li>
-            <li><a href="/newflightinfo">Enter New Flight Info</a></li>
+           <% user = User.find_by(:id => session[:user_id]) %>
+            <% if user.present? %>
+              <li><a href="/trips">My Trips</a></li>
+              <li><a href="/expenses">Expenses</a></li>
+              <li><a href="/newflightinfo">Enter New Flight Info</a></li>
+            <% end %>
+
             <li><a href="/index">Resources</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
 
-            <li><a href="/signup" target="_blank">Signup</a></li>
-            <li><a href="/signin" target="_blank">Login</a></li>
+            <% if user.present? %>
+              <li class ="navbar-text">Hi, <%= user.name %></li>
+            <% else %>
+              <li><a href="/users/new">Sign Up</a></li>
+              <li><a href="/login">Sign In</a></li>
+            <% end %>
+
+            <% if user.present? %>
+              <li><a href="/users/<%= user.id %>/show">My Profile</a></li>
+              <li><a href="/logout">Sign Out</a></li>
+            <% end %>
           </ul>
 
         </div>
