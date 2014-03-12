@@ -23,13 +23,15 @@ class TripsController < ApplicationController
     trip.start_date = params["start_date"]
     trip.end_date = params["end_date"]
     trip.description = params["description"]
-    trip.save
-    # trip_valid = trip.save
-    # if trip_valid == 1 ......
-    #render 'create'
-    #give error message
+    # trip.save
+    trip_valid = trip.save
 
+    if trip_valid == false
+      redirect_to "/trips", notice: trip.errors.full_messages
+    else
     redirect_to "/trips"
+    end
+
   end
 
   def edit
