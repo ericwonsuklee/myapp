@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20140307195420) do
   end
 
   create_table "flights", force: true do |t|
+    t.text     "trip_name"
+    t.text     "airline"
+    t.integer  "flight_number"
+    t.text     "depart_location"
+    t.text     "arrive_location"
+    t.datetime "depart_time"
+    t.datetime "arrive_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
