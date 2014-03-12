@@ -9,8 +9,6 @@ class Trip < ActiveRecord::Base
   #   Notifier..product_created(self).deliver
   # end
   #self here represents Trip. meta... after anyone save, callback and do this
-  validates :trip_name, :location, :start_date, :end_date, presence:true
-  validates :trip_name, uniqueness:true
-  validates :trip_name, length: {minimum: 2 }
+
 
 end

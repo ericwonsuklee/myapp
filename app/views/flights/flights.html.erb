@@ -1,0 +1,48 @@
+ <div class="container">
+
+      <div class="page-header">
+        <h2>My Flights</h2>
+      </div>
+    <div class="row container">
+      <h2> Flights
+      <a href="/flights/new" class="btn btn-warning pull-right">Enter New Flight</a>
+      </h2>
+    </div>
+
+      <div class="row table-responsive container">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Trip Name</th>
+              <th>Airline</th>
+              <th>Flight Number</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Departure</th>
+              <th>Arrival</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+<!-- Enter the info that will appear when a flight is put in, See Trips view -->
+            <% @flight_list.each do |flight| %>
+
+              <tr>
+                <td><%= flight.id %></td>
+                <td><%= flight.trip_name %></td>
+                <td><%= flight.airline %></td>
+                <td><%= flight.flight_number %></td>
+                <td><%= flight.depart_location %></td>
+                <td><%= flight.arrive_location %></td>
+                <td><%= flight.depart_time %></td>
+                <td><%= flight.arrive_time %></td>
+                <td><%= link_to "Edit", "/flights/#{flight.id}/edit" %> | <%= link_to "Delete", "/flights/#{flight.id}/delete" %> | <%= link_to "Expenses", "/expenses" %></td>
+              </tr>
+            <% end %>
+
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>

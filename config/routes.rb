@@ -13,8 +13,6 @@ Myapp::Application.routes.draw do
   get "/users/create" => 'users#create'
   get "/users/:user_id/show" => 'users#show'
 
-  get "/newflightinfo" => "pages#newflightinfo"
-
   # CREATE
   get "/expenses/new/:trip_id" => "moolah#new"
   get "/expenses/create/:trip_id" => "moolah#create"
@@ -22,12 +20,18 @@ Myapp::Application.routes.draw do
   get "/trips/new" => "trips#new"
   get "/trips/create" => "trips#create"
 
+  get "/flights/new" => "flights#new"
+  get "/flights/create" => "flights#create"
+
   # READ
   get "/expenses/" => "moolah#expenses"
   get "/expenses/:expense_id/show" => "moolah#show"
 
   get "/trips" => "trips#trips"
   get "/trips/:trip_id/show" => "trips#show"
+
+  get "/flights" => "flights#flights"
+  get "/flights/:flight_id/show" => "flights#show"
 
   # UPDATE
   get "/expenses/:expense_id/edit" => "moolah#edit"

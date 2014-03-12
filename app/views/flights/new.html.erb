@@ -1,0 +1,51 @@
+    <div class="container">
+
+      <div class="page-header">
+        <h2>My Flights</h2>
+      </div>
+
+      <form action="/flights/create">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="well">
+                <form class="form-horizontal">
+
+                  <div class="row">
+                    <% if @flight_list.first.present? %>
+                      <p class="col-md-6">
+                        <label for="Trip-Name">Please tell us which trip this is for:</label>
+                        <select class="form-control" name="trip_name">
+                          <% Trip.all.each do |trip| %>
+                            <option value="<%= trip.id %>"><%= trip.trip_name %></option>
+                          <% end %>
+                        </select>
+                      </p>
+
+                      <p class="col-md-6">
+                        <br>
+                        <a href="text" class="btn btn-warning">OK</a>
+                      </p>
+
+                    <% else %>
+                      <p class="col-md-6">
+                        <a href="/trips/new" class="btn btn-warning pull-left">Enter New Trip</a>
+                      </p>
+
+                      <p class="col-md-6">
+                        <a href="/" class="btn btn-warning pull-left">Home</a>
+                      </p>
+                    <% end %>
+
+                  </div>
+
+                    <%= render "enter_details_form"%>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
