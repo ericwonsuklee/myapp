@@ -10,35 +10,31 @@
               <div class="well">
                 <form class="form-horizontal">
 
-                  <div class="row">
-                    <% if @flight_list.first.present? %>
-                      <p class="col-md-6">
-                        <label for="Trip-Name">Please tell us which trip this is for:</label>
+                  <% if @trip_list.first.present? %>
+                    <div class="row">
+                      <p class="col-md-12">
+                        <label>Please tell us which trip this is for:</label>
                         <select class="form-control" name="trip_name">
                           <% Trip.all.each do |trip| %>
-                            <option value="<%= trip.id %>"><%= trip.trip_name %></option>
+                            <option name="trip_name" placeholder="Select One of your Trips" ><%= trip.trip_name %></option>
                           <% end %>
                         </select>
                       </p>
-
-                      <p class="col-md-6">
-                        <br>
-                        <a href="text" class="btn btn-warning">OK</a>
-                      </p>
-
-                    <% else %>
-                      <p class="col-md-6">
-                        <a href="/trips/new" class="btn btn-warning pull-left">Enter New Trip</a>
-                      </p>
-
-                      <p class="col-md-6">
-                        <a href="/" class="btn btn-warning pull-left">Home</a>
-                      </p>
-                    <% end %>
-
-                  </div>
+                    </div>
 
                     <%= render "enter_details_form"%>
+
+                  <% else %>
+                    <div class="row">
+                      <p class="col-md-2">
+                        <a href="/trips/new" class="btn btn-warning">Enter New Trip</a>
+                      </p>
+
+                      <p class="col-md-10">
+                        <a href="/" class="btn btn-warning">Home</a>
+                      </p>
+                    </div>
+                  <% end %>
 
               </form>
             </div>

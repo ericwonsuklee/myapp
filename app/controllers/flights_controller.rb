@@ -2,8 +2,8 @@ class FlightsController < ApplicationController
 
   def new
     @flight_list = Flight.all
+    @trip_list = Trip.all
   end
-
 
   def flights
     @flight_list = Flight.all
@@ -17,7 +17,6 @@ class FlightsController < ApplicationController
   end
 
   def create
-    flight_list = Flight.all
     flight = Flight.new
     flight.trip_name = params["trip_name"]
     flight.airline = params["airline"]
