@@ -1,11 +1,12 @@
 class FlightsController < ApplicationController
 
   def new
-    @flight_list = Trip.all
+    @flight_list = Flight.all
   end
 
-  def show
-    @flight_list = Trip.all
+
+  def flights
+    @flight_list = Flight.all
     @flight = Flight.find_by(:id => params[:flight_id])
   end
 

@@ -28,7 +28,7 @@
             <tr>
               <td><%= trip.id %></td>
               <td><%= trip.trip_name %></td>
-              <td><%= trip.location %></td>
+              <td><%=  link_to trip.location, "/map/#{trip.id}" %></td>
               <td><%= trip.start_date %></td>
               <td><%= trip.end_date %></td>
 
