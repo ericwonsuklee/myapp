@@ -4,6 +4,7 @@ Myapp::Application.routes.draw do
 
   get "/index" => "pages#index"
   get "/show" => "pages#show"
+  get "/map/:trip_id" => "pages#map"
 
   get "login" => 'sign#new'
   get "logout" => 'sign#destroy'

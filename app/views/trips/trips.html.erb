@@ -32,7 +32,7 @@
               <td><%= trip.start_date %></td>
               <td><%= trip.end_date %></td>
 
-              <td><%= link_to "Edit", "/trips/#{trip.id}/edit" %> | <%= link_to "Delete", "/trips/#{trip.id}/delete" %> | <%= link_to "Expenses", "/expenses" %></td>
+              <td><%= link_to "Edit", "/trips/#{trip.id}/edit" %> | <%= link_to "Delete", "/trips/#{trip.id}/delete" %> | <%= link_to "Expenses", "/expenses" %> | <%= link_to "Map", "/map/#{trip.id}" %></td>
             </tr>
           <% end %>
 
