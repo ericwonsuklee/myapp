@@ -23,7 +23,15 @@ opacity:0.6;
   <div>
     <h3>Simplify your group travel. </h3>
     <h3>Plan + travel together.</h3>
-    <a href="/users/new" class="btn btn-warning pull-left">Sign Up Today</a>
+
+    <% user = User.find_by(:id => session[:user_id]) %>
+    <% if user.blank? %>
+      <a href="/users/new" class="btn btn-warning pull-left">Sign Up Today</a>
+    <% else %>
+      <a href="/trips/new" class="btn btn-warning pull-left">Add a new trip</a>
+    <% end %>
+
+
   </div>
 </div>
 

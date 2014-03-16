@@ -12,5 +12,8 @@ class Trip < ActiveRecord::Base
   validates :trip_name, :location, :start_date, :end_date, presence:true
   validates :trip_name, uniqueness:true
   validates :trip_name, length: {minimum: 2 }
+  after_save do |trip|
+    puts "Your trip was successfully saved"
+  end
 
 end
