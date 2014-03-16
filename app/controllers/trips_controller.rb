@@ -7,6 +7,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find_by(:id => params[:trip_id])
   end
+
   def destroy
     trip = Trip.find_by(:id => params[:trip_id])
     trip.destroy

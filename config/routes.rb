@@ -41,10 +41,15 @@ Myapp::Application.routes.draw do
   get "/trips/:trip_id/edit" => "trips#edit"
   get "/trips/:trip_id/update" => "trips#update"
 
+  get "/flights/:flight_id/edit" => "flights#edit"
+  get "/flights/:flight_id/update" => "flights#update"
+
   # DELETE
   get "/expenses/:expense_id/delete" => "moolah#destroy"
 
   get "/trips/:trip_id/delete" => "trips#destroy"
+
+  get "/flights/:flight_id/delete" => "flights#destroy"
 
 
 

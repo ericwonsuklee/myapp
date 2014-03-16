@@ -1,0 +1,80 @@
+    <div class="container">
+
+      <div class="page-header">
+        <h2>Edit Your Flight Details</h2>
+      </div>
+
+      <form action="/flights/<%= @flight.id %>/update">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="well">
+                <form class="form-horizontal">
+
+                  <div class="row">
+                    <p class="col-md-12">
+                      <legend>Please adjust your flight details below:</legend>
+
+                            <p class="col-md-12">
+                              <label for="Trip Name">Trip Name</label>
+                              <input value="<%= @flight.trip_name %>"name="trip_name" type="text" class="form-control" placeholder="Ex: Stephen's Vacay">
+                            </p>
+                          </div>
+
+                        <fieldset>
+
+                        <legend>Getting Away</legend>
+
+                          <div class="row">
+                            <p class="col-md-6">
+                              <label for="departureairline-away">Airline</label>
+                              <input value="<%= @flight.airline %>" name="airline" type="text" class="form-control" placeholder="Ex: United">
+                            </p>
+
+                            <p class="col-md-6">
+                              <label for="flightnumber-away">Flight #</label>
+                              <input value="<%= @flight.flight_number %>" name="flight_number" type="text" class="form-control" placeholder="Ex: 1234">
+                            </p>
+                          </div>
+
+                          <div class="row">
+                            <p class="col-md-6">
+                              <label for="departureairport-away">Departure Airport</label>
+                              <input value="<%= @flight.depart_location %>" type="text" class="form-control" id="departureairport-away" placeholder="Airport Code">
+                            </p>
+
+                            <p class="col-md-6">
+                              <label for="departuredatetime-away">Date & Time</label>
+                              <input value="<%= @flight.depart_time %>" type="datetime-local" class="form-control" id="departuredatetime-away">
+                            </p>
+                          </div>
+
+                          <div class="row">
+                            <p class="col-md-6">
+                              <label for="arrivalairport-away">Arrival Airport</label>
+                              <input value="<%= @flight.arrive_location %>" type="text" class="form-control" id="arrivalairport-away" placeholder="Airport Code">
+                            </p>
+
+                            <p class="col-md-6">
+                              <label for="arrivaldatetime-away">Date & Time</label>
+                              <input value="<%= @flight.arrive_time %>" type="datetime-local" class="form-control" id="arrivaldatetime-away">
+                            </p>
+                          </div>
+
+                          <button  type="submit" class="btn btn-primary">Submit</button>
+                          <a href="/flights" class="btn btn-default">Cancel</a>
+
+                       </fieldset>
+
+                    </p>
+
+                  </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
